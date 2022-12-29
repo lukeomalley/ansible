@@ -1,0 +1,13 @@
+- name: Download vscode
+  get_url:
+    url: https://az764295.vo.msecnd.net/stable/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/code_1.74.2-1671533413_amd64.deb
+    dest: /tmp/vscode.deb
+  tags:
+    - vscode
+
+- name: Install vscode .deb package
+  become: true
+  apt:
+    deb: /tmp/vscode.deb
+  tags:
+    - vscode

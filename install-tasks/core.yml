@@ -1,0 +1,24 @@
+- name: Install git
+  apt: name=git
+  tags:
+    - core
+
+- name: Install curl
+  apt: name=curl
+  tags:
+    - core
+
+- name: Install neovim
+  apt: name=neovim
+  tags:
+    - core
+
+- name: Install stow
+  apt: name=stow
+  tags:
+    - core
+
+- name: Install unzip
+  apt: name=unzip
+  tags:
+    - core

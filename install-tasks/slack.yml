@@ -1,0 +1,21 @@
+- name: Download slack
+  get_url:
+    url: https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-desktop-4.29.149-amd64.deb
+    dest: /tmp/slack.deb
+  tags:
+    - slack
+
+- name: Remove any previous slacks
+  become: true
+  apt:
+    name: slack-desktop
+    state: absent
+  tags:
+    - slack
+
+- name: Install slack .deb package
+  become: true
+  apt:
+    deb: /tmp/slack.deb
+  tags:
+    - slack

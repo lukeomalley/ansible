@@ -1,0 +1,22 @@
+- name: Install node
+  apt:
+    name: ["nodejs", "npm"]
+  tags:
+    - node
+
+- name: Add node bins to path
+  shell: export PATH="$(npm bin):$PATH"
+  tags:
+    - node
+
+- name: Install n
+  npm:
+    name: n
+    global: true
+  tags:
+    - node
+
+- name: Install node 18
+  shell: n 18
+  tags:
+    - node

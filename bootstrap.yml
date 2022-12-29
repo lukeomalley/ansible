@@ -1,0 +1,20 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: Update cache
+      apt:
+        update_cache: true
+      tags:
+        - core
+        - zsh
+        - node
+        - rust
+        - slack
+        - vscode
+  tasks:
+    - include: install-tasks/core.yml
+    - include: install-tasks/zsh.yml
+    - include: install-tasks/rust.yml
+    - include: install-tasks/node.yml
+    - include: install-tasks/slack.yml
+    - include: install-tasks/vscode.yml
